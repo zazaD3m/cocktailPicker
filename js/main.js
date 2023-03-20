@@ -9,6 +9,7 @@ const instructionsVal = document.querySelector('h3')
 const imgVal = document.querySelector('img')
 const errorVal = document.querySelector('.errorMsg')
 const numOfDrinks = document.querySelector('h4')
+const numOfDrinksVal = document.querySelector('span')
 const showAll = document.querySelector('.showAll')
 const listOfDrinks = document.querySelector('ul')
 let arrOfDrinks = []
@@ -19,6 +20,9 @@ document.querySelector('.showAll').addEventListener('click', showDrinkList)
 
 function getDrink(){
     const drinkName = inputVal.value
+    if( inputVal.value === ''){
+        return
+    }
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`)
         .then( res => res.json())
         .then( data => {
@@ -30,7 +34,8 @@ function getDrink(){
             nameVal.innerHTML = drinks[0].strDrink
             instructionsVal.innerHTML = drinks[0].strInstructions
             imgVal.src = drinks[0].strDrinkThumb
-            numOfDrinks.innerHTML = `Number of cocktails found: ${drinks.length}`
+            numOfDrinks.innerHTML = 'Number of cocktails found:'
+            numOfDrinksVal.innerText = `${drinks.length}`
             showAll.classList.remove('hidden')
             listOfDrinks.innerHTML = ''
             listOfDrinks.classList.add('hidden')

@@ -17,6 +17,7 @@ img{
 }
 .errorMsg,h4 {
   color: red;
+  display: inline;
 }
 .hidden {
   display: none;
@@ -44,7 +45,16 @@ li {
 body {
   padding-left: 20px;
 }
-
+span {
+  color: green;
+  font-size: 28px;
+  display: inline;
+  padding-left: 10px;
+}
+div {
+  display: block;
+  margin-bottom: 10px;
+}
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
